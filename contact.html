@@ -142,12 +142,18 @@
         <!-- Contact Form -->
         <div class="contact-form">
             <h2>Send Message</h2>
-            <form onsubmit="return sendMessage()">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
+            <form action="https://formsubmit.co/yourname@gmail.com" method="POST">
+
+                <input type="hidden" name="_subject" value="New Contact Message">
+                <input type="hidden" name="_captcha" value="false">
+
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" placeholder="Your Message" required></textarea>
+
                 <button type="submit">Send Message</button>
             </form>
+
         </div>
 
     </section>

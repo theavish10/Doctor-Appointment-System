@@ -98,32 +98,35 @@
     <div class="appointment">
         <h2>Book Appointment</h2>
 
-        <form onsubmit="return bookAppointment()">
-            <input type="text" id="name" placeholder="Patient Name" required>
-            <input type="tel" id="phone" placeholder="Phone Number" required>
-            <input type="email" id="email" placeholder="Email" required>
+        <form action="https://formsubmit.co/YOUR_EMAIL@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Doctor Appointment">
+            <input type="hidden" name="_captcha" value="false">
 
-            <select required>
+            <input type="text" name="Patient Name" placeholder="Patient Name" required>
+            <input type="tel" name="Phone" placeholder="Phone Number" required>
+            <input type="email" name="Email" placeholder="Email" required>
+
+            <select name="Doctor" required>
                 <option value="">Select Doctor</option>
                 <option>Dr. Amit Kumar (Cardiologist)</option>
                 <option>Dr. Neha Singh (Gynecologist)</option>
                 <option>Dr. Rohit Verma (Orthopedic)</option>
                 <option>Dr. Pooja Sharma (Dermatologist)</option>
                 <option>Dr. Suresh Mehta (Neurologist)</option>
-                <option>Dr. Anjali Gupta (Pediatrician)</optio>
+                <option>Dr. Anjali Gupta (Pediatrician)</option>
                 <option>Dr. Rahul Jain (Dentist)</option>
                 <option>Dr. Kavita Rao (ENT Specialist)</option>
                 <option>Dr. Manoj Yadav (General Physician)</option>
                 <option>Dr. Sneha Patel (Ophthalmologist)</option>
-
             </select>
 
-            <input type="date" required>
+            <input type="date" name="Appointment Date" required>
 
-            <textarea placeholder="Message (Optional)"></textarea>
+            <textarea name="Message" placeholder="Message"></textarea>
 
             <button type="submit">Confirm Appointment</button>
         </form>
+
     </div>
 
     <!-- JavaScript -->
