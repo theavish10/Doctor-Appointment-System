@@ -1,0 +1,496 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Consult | DoctorCare24x7</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #111827;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        /* Section */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h1 {
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 280px;
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #1e40af;
+        }
+
+        /* ===== MODAL CSS ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: #ffffff;
+    padding: 25px;
+    width: 320px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+    margin-bottom: 15px;
+    color: #2563eb;
+}
+
+.modal-box input,
+.modal-box textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-box button {
+    width: 100%;
+    padding: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-box button:hover {
+    background: #1e40af;
+}
+
+
+        .footer-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .footer-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22d3ee;
+            border-radius: 50%;
+            margin: 0 6px;
+        }
+
+        .footer-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+        }
+
+        footer {
+            margin-top: 40px;
+            background-color: #0a66c2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    Navbar
+    <nav>
+        <div class="logo">DoctorCare24x7</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctors.html">Find Doctors</a></li>
+            <li><a href="lab-tests.html">Lab-Tests</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Video Consultation</h1>
+        <p>Consult top doctors online from the comfort of your home</p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>General Physician</h3>
+                <p>Common health issues & fever</p>
+                <button onclick="openModal()">Consult Now</button>
+            </div>
+
+            <div class="card">
+                <h3>Dermatologist</h3>
+                <p>Skin, hair & allergy issues</p>
+                <button onclick="openModal()">Consult Now</button>
+            </div>
+
+            <div class="card">
+                <h3>Pediatrician</h3>
+                <p>Child health consultation</p>
+                <button onclick="openModal()">Consult Now</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="consultModal">
+        <div class="modal-box">
+            <h3>Video Consultation</h3>
+            <input type="text" placeholder="Your Name">
+            <input type="tel" placeholder="Phone Number">
+            <textarea placeholder="Describe your problem"></textarea>
+            <button onclick="closeModal()">Submit</button>
+        </div>
+    </div>
+
+    FOOTER
+    <footer>
+        <div class="footer-brand">
+            <span class="footer-dot"></span>
+            <span class="footer-name">DoctorCare24x7</span>
+            <span class="footer-dot"></span>
+        </div>
+        © 2026 DoctorCare24x7. All rights reserved.
+    </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById("consultModal").style.display = "flex";
+        }
+        function closeModal() {
+            alert("Consult request submitted!");
+            document.getElementById("consultModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Consult | DoctorCare24x7</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #111827;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        /* Top Cards */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 280px;
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #1e40af;
+        }
+
+        /* ===== SPECIALITIES SECTION ===== */
+        .specialities {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .specialities-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .specialities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .speciality-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .speciality-icon {
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            border-radius: 50%;
+            background: #eef2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .speciality-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            background-color: #0a66c2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">DoctorCare24x7</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Find Doctors</a></li>
+        <li><a href="lab-tests.html">Lab Tests</a></li>
+        <li><a href="appointment.html">Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- SPECIALITIES -->
+<section class="specialities">
+    <div class="specialities-header">
+        <h2>10 Specialities</h2>
+    </div>
+
+    <div class="specialities-grid">
+        <div class="speciality-card">
+            <div class="speciality-icon">❤️</div>
+            <h4>Cardiologist</h4>
+            <span>₹599</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">🤰</div>
+            <h4>Gynecologist</h4>
+            <span>₹549</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">🧴</div>
+            <h4>Dermatologist</h4>
+            <span>₹549</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">🦴</div>
+            <h4>Orthopedic</h4>
+            <span>₹549</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">🧠</div>
+            <h4>Neurologist</h4>
+            <span>₹450</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">👶</div>
+            <h4>Pediatrician</h4>
+            <span>₹500</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">🦷</div>
+            <h4>Dentist</h4>
+            <span>₹350</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">👂</div>
+            <h4>ENT Specialist</h4>
+            <span>₹300</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">🩺 </div>
+            <h4>General Physician</h4>
+            <span>₹400</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+        <div class="speciality-card">
+            <div class="speciality-icon">👁️</div>
+            <h4>Ophthalmologist</h4>
+            <span>₹350</span>
+            <a href="consult_appointment.html">Consult now ›</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 DoctorCare24x7. All rights reserved.
+</footer>
+
+</body>
+</html>

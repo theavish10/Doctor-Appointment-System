@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Lab Test | DoctorCare24x7</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        .test-box {
+            width: 380px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .test-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2563eb;
+        }
+
+        .test-box input,
+        .test-box select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .test-box button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .test-box button:hover {
+            background: #1e40af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="test-box">
+        <h2>Book Lab Test</h2>
+
+        <form onsubmit="return submitTest()">
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="tel" placeholder="Mobile Number" required>
+
+            <select required>
+                <option value="">Select Lab Test</option>
+                <option>Complete Blood Count (CBC)</option>
+                <option>Blood Sugar Test</option>
+                <option>Lipid Profile</option>
+                <option>Thyroid Profile</option>
+                <option>Liver Function Test (LFT)</option>
+                <option>Kidney Function Test (KFT)</option>
+                <option>Vitamin D Test</option>
+                <option>Vitamin B12 Test</option>
+                <option>Urine Routine Test</option>
+            </select>
+
+            <button type="submit">Book Test</button>
+        </form>
+    </div>
+
+    <script>
+        function submitTest() {
+            alert("Your lab test has been booked successfully!");
+            return false; // frontend demo only
+        }
+    </script>
+
+</body>
+</html>

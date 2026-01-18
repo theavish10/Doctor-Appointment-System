@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consult Appointment | DoctorCare24x7</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        /* Container */
+        .appointment-box {
+            width: 350px;
+            margin: 80px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .appointment-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2563eb;
+        }
+
+        .appointment-box input,
+        .appointment-box select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .appointment-box button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .appointment-box button:hover {
+            background: #1e40af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="appointment-box">
+        <h2>Consult Appointment</h2>
+
+        <form onsubmit="return submitAppointment()">
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="tel" placeholder="Mobile Number" required>
+
+            <select required>
+                <option value="">Select Time Slot</option>
+                <option>11:00 AM - 12:30 PM</option>
+                <option>01:00 PM - 02:30 PM</option>
+                <option>03:00 PM - 04:30 PM</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitAppointment() {
+            alert("Your consultation appointment has been booked!");
+            return false;
+        }
+    </script>
+
+</body>
+</html>

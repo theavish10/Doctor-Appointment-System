@@ -1,10 +1,11 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Doctor Appointment System</title>
 
-    <!-- Internal CSS -->
+    Internal CSS
     <style>
         * {
             margin: 0;
@@ -138,7 +139,7 @@
 
 <body>
 
-    <!-- Navbar -->
+    Navbar
     <nav>
         <div class="logo">DoctorCare</div>
         <ul>
@@ -149,14 +150,14 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    Hero Section
     <section class="hero">
         <h1>Doctor Appointment System</h1>
         <p>Book appointments with trusted and experienced doctors</p>
         <a href="appointment.html" class="btn">Book Appointment</a>
     </section>
 
- <!-- Doctors Section -->
+ Doctors Section
 <section class="doctors">
     <h2>Our Doctors</h2>
 
@@ -236,10 +237,399 @@
 </section>
 
 
-    <!-- Footer -->
+    Footer
     <footer>
         © 2026 Doctor Appointment System | Frontend Project
     </footer>
 
 </body>
 </html>
+-->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DoctorCare24x7</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-right: 40px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #111827;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .nav-btn.outline {
+            padding: 6px 14px;
+            border: 1px solid #2563eb;
+            border-radius: 4px;
+        }
+
+        .nav-btn.outline:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    Navbar
+    <nav>
+        <div class="nav-left">
+            <div class="logo">DoctorCare24x7</div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="video-consult.html">Video Consult</a></li>
+                <li><a href="lab-tests.html">Lab Tests</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <a href="login.html" class="nav-btn outline">Login / Signup</a>
+        </div>
+    </nav>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DoctorCare24x7 | Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-right: 40px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #111827;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .nav-right .btn {
+            padding: 6px 14px;
+            border: 1px solid #2563eb;
+            border-radius: 4px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(to right, #2563eb, #1e40af);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            background: white;
+            color: #2563eb;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #111827;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #374151;
+            font-size: 14px;
+        }
+
+        /* ===== WHY US ===== */
+        .why-us {
+            background: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .why-us h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .why-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .why-item {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .footer-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22d3ee;
+            border-radius: 50%;
+            margin: 0 6px;
+        }
+
+        .footer-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+        }
+
+        footer {
+            margin-top: 40px;
+            background-color: #0a66c2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">DoctorCare24x7</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="video-consult.html">Video Consult</a></li>
+                <li><a href="lab-tests.html">Lab Tests</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <a href="login.html">Login</a>
+            <a href="signup.html" class="btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Your Health, Our Priority</h1>
+        <p>Book appointments, consult doctors online, and manage healthcare easily</p>
+        <a href="doctors.html">Find Doctors</a>
+        <a href="appointment.html">Book Appointment</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3>Doctor Appointments</h3>
+                <p>Book appointments with experienced doctors across multiple specialties.</p>
+            </div>
+            <div class="service-card">
+                <h3>Video Consultation</h3>
+                <p>Consult doctors online from the comfort of your home.</p>
+            </div>
+            <div class="service-card">
+                <h3>Lab Tests</h3>
+                <p>Book lab tests with trusted diagnostic centers near you.</p>
+            </div>
+            <div class="service-card">
+                <h3>24x7 Support</h3>
+                <p>Healthcare support available anytime, anywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us">
+        <h2>Why Choose DoctorCare24x7?</h2>
+        <div class="why-list">
+            <div class="why-item">✔ Trusted Doctors</div>
+            <div class="why-item">✔ Easy Booking</div>
+            <div class="why-item">✔ Secure Platform</div>
+            <div class="why-item">✔ Fast Consultation</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-brand">
+            <span class="footer-dot"></span>
+            <span class="footer-name">DoctorCare24x7</span>
+            <span class="footer-dot"></span>
+        </div>
+        © 2026 DoctorCare24x7. All rights reserved.
+    </footer>
+
+</body>
+</html>
+
+
