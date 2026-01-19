@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -112,7 +112,7 @@
 
 <body>
 
-    <!-- Navbar -->
+    Navbar
     <nav>
         <div class="logo">DoctorCare24x7</div>
         <ul>
@@ -124,7 +124,7 @@
         </ul>
     </nav>
 
-    <!-- Appointment Form -->
+    Appointment Form
     <div class="appointment">
         <h2>Book Appointment</h2>
 
@@ -159,7 +159,7 @@
 
     </div>
 
-    <!-- JavaScript -->
+    JavaScript
     <script>
         function bookAppointment() {
             alert("Appointment booked successfully!");
@@ -174,6 +174,180 @@
         </div>
         © 2026 DoctorCare24x7. All rights reserved.
     </footer>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment | DoctorCare24x7</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+        }
+
+        nav .logo {
+            color: #2563eb;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #111827;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Hero */
+        .hero {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 430px;
+            object-fit: contain;
+            object-position: center;
+        }
+
+
+        /* Form Section */
+        .appointment {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .appointment img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .appointment h2 {
+            margin-bottom: 20px;
+            color: #0a66c2;
+        }
+
+        .appointment input,
+        .appointment select,
+        .appointment textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .appointment button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0a66c2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .appointment button:hover {
+            background-color: #084c9e;
+        }
+
+        footer {
+            margin-top: 40px;
+            background-color: #0a66c2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">DoctorCare24x7</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Find Doctors</a></li>
+        <li><a href="video-consult.html">Video-Consult</a></li>
+        <li><a href="lab-tests.html">Lab-Tests</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Image -->
+<div class="hero">
+    <img src="images/appointment/appointment-hero.jpg" alt="Book Doctor Appointment">
+</div>
+
+<!-- Appointment Form -->
+<div class="appointment">
+    <img src="images/appointment/appointment-form.png" alt="Appointment Icon">
+    <h2>Book Appointment</h2>
+
+    <form action="https://formsubmit.co/doctorcare24x7@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Doctor Appointment">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://theavish10.github.io/Doctor-Appointment-System/index.html">
+
+        <input type="text" name="Patient Name" placeholder="Patient Name" required>
+        <input type="tel" name="Phone" placeholder="Phone Number" required>
+        <input type="email" name="Email" placeholder="Email" required>
+
+        <select name="Doctor" required>
+            <option value="">Select Doctor</option>
+            <option>Dr. Amit Kumar (Cardiologist)</option>
+            <option>Dr. Neha Singh (Gynecologist)</option>
+            <option>Dr. Rohit Verma (Orthopedic)</option>
+            <option>Dr. Pooja Sharma (Dermatologist)</option>
+            <option>Dr. Suresh Mehta (Neurologist)</option>
+            <option>Dr. Anjali Gupta (Pediatrician)</option>
+            <option>Dr. Rahul Jain (Dentist)</option>
+            <option>Dr. Kavita Rao (ENT Specialist)</option>
+            <option>Dr. Manoj Yadav (General Physician)</option>
+            <option>Dr. Sneha Patel (Ophthalmologist)</option>
+        </select>
+
+        <input type="date" name="Appointment Date" required>
+        <textarea name="Message" placeholder="Message"></textarea>
+
+        <button type="submit">Confirm Appointment</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer>
+    © 2026 DoctorCare24x7. All rights reserved.
+</footer>
 
 </body>
 </html>
