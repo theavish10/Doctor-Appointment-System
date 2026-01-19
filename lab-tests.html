@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab Tests | DoctorCare24x7</title>
 
     <style>
@@ -16,6 +17,7 @@
             background: #f4f6f9;
         }
 
+        /* ===== NAVBAR ===== */
         nav {
             display: flex;
             justify-content: space-between;
@@ -24,30 +26,41 @@
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
         }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
 
-        nav ul li {
-            margin-left: 25px;
-        }
-
-        nav ul li a {
-            color: #111827;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
         .logo {
             font-size: 22px;
             font-weight: bold;
             color: #2563eb;
         }
 
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links li a {
+            color: #111827;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== HAMBURGER ===== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== CONTENT ===== */
         .container {
             max-width: 1000px;
             margin: 50px auto;
@@ -102,6 +115,55 @@
         .test-card button:hover {
             background: #1e40af;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+.menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== MOBILE + HAMBURGER ===== */
+        @media (max-width: 768px) {
+
+        nav {
+            position: relative; /* REQUIRED */
+            flex-wrap: wrap;
+            padding: 14px 20px;
+        }
+
+        .menu-toggle {
+            display: block;
+            position: absolute;   
+            top: 16px;            
+            right: 20px;          
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: white;
+            margin-top: 50px;     /* space below navbar */
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 12px 20px;
+        }
+    }
+
+        /* ===== FOOTER ===== */
         .footer-brand {
             display: flex;
             justify-content: center;
@@ -135,104 +197,109 @@
 
 <body>
 
-    <nav>
-        <div class="logo">DoctorCare24x7</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="doctors.html">Find Doctors</a></li>
-            <li><a href="video-consult.html">Video-Consult</a></li>
-            <li><a href="appointment.html">Appointment</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">DoctorCare24x7</div>
 
-    <div class="container">
-        <h1>Lab Tests</h1>
-        <p>Book lab tests with trusted diagnostic centers</p>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Find Doctors</a></li>
+        <li><a href="video-consult.html">Video Consult</a></li>
+        <li><a href="appointment.html">Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-        <div class="tests">
-            <div class="test-card">
-                <h3>Complete Blood Count (CBC)</h3>
-                <p>Price: <span>₹400</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
 
-            <div class="test-card">
-                <h3>Blood Sugar Test</h3>
-                <p>Price: <span>₹250</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+<!-- CONTENT -->
+<div class="container">
+    <h1>Lab Tests</h1>
+    <p>Book lab tests with trusted diagnostic centers</p>
 
-            <div class="test-card">
-                <h3>Lipid Profile</h3>
-                <p>Price: <span>₹600</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+    <div class="tests">
+        <div class="test-card">
+            <h3>Complete Blood Count (CBC)</h3>
+            <p>Price: <span>₹400</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
 
-            <div class="test-card">
-                <h3>Thyroid Test</h3>
-                <p>Price: <span>₹500</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+        <div class="test-card">
+            <h3>Blood Sugar Test</h3>
+            <p>Price: <span>₹250</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
 
-            <div class="test-card">
-                <h3>Liver Function Test (LFT)</h3>
-                <p>Price: <span>₹550</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+        <div class="test-card">
+            <h3>Lipid Profile</h3>
+            <p>Price: <span>₹600</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
 
-            <div class="test-card">
-                <h3>Kidney Function Test (KFT)</h3>
-                <p>Price: <span>₹500</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+        <div class="test-card">
+            <h3>Thyroid Test</h3>
+            <p>Price: <span>₹500</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
 
-            <div class="test-card">
-                <h3>Vitamin D Test</h3>
-                <p>Price: <span>₹800</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+        <div class="test-card">
+            <h3>Liver Function Test (LFT)</h3>
+            <p>Price: <span>₹550</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
 
-            <div class="test-card">
-                <h3>Vitamin B12 Test</h3>
-                <p>Price: <span>₹700</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+        <div class="test-card">
+            <h3>Kidney Function Test (KFT)</h3>
+            <p>Price: <span>₹500</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
 
-            <div class="test-card">
-                <h3>Urine Routine Examination</h3>
-                <p>Price: <span>₹200</span></p>
-                <a href="book_test_appointment.html">
-                    <button>Book Test</button>
-                </a>
-            </div>
+        <div class="test-card">
+            <h3>Vitamin D Test</h3>
+            <p>Price: <span>₹800</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
+
+        <div class="test-card">
+            <h3>Vitamin B12 Test</h3>
+            <p>Price: <span>₹700</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
+        </div>
+
+        <div class="test-card">
+            <h3>Urine Routine Examination</h3>
+            <p>Price: <span>₹200</span></p>
+            <a href="book_test_appointment.html"><button>Book Test</button></a>
         </div>
     </div>
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-brand">
-            <span class="footer-dot"></span>
-            <span class="footer-name">DoctorCare24x7</span>
-            <span class="footer-dot"></span>
-        </div>
-        © 2026 DoctorCare24x7. All rights reserved.
-    </footer>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <span class="footer-dot"></span>
+        <span class="footer-name">DoctorCare24x7</span>
+        <span class="footer-dot"></span>
+    </div>
+    © 2026 DoctorCare24x7. All rights reserved.
+</footer>
+
+<!-- TOGGLE SCRIPT -->
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    navLinks.classList.toggle('show');
+
+    if (navLinks.classList.contains('show')) {
+        toggleBtn.innerHTML = "✖";
+    } else {
+        toggleBtn.innerHTML = "☰";
+    }
+}
+</script>
+
 
 </body>
 </html>

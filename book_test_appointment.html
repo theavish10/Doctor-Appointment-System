@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Lab Test | DoctorCare24x7</title>
 
     <style>
@@ -55,6 +56,81 @@
         .test-box button:hover {
             background: #1e40af;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== MOBILE + HAMBURGER ===== */
+        @media (max-width: 768px) {
+
+        nav {
+            position: relative; /* REQUIRED */
+            flex-wrap: wrap;
+            padding: 14px 20px;
+        }
+
+        .menu-toggle {
+            display: block;
+            position: absolute;   
+            top: 16px;            
+            right: 20px;          
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: white;
+            margin-top: 50px;     /* space below navbar */
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 12px 20px;
+        }
+        .nav-right {
+            display: none;
+        }
+    
+
+    /* layout fixes */
+    .service-cards,
+    .steps,
+    .why-list,
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .test-box,
+    .appointment {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
+
+
     </style>
 </head>
 
@@ -90,6 +166,20 @@
             alert("Your lab test has been booked successfully!");
             return false; // frontend demo only
         }
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const toggleBtn = document.querySelector('.menu-toggle');
+
+            navLinks.classList.toggle('show');
+
+            if (navLinks.classList.contains('show')) {
+                toggleBtn.innerHTML = "✖";
+            } else {
+                toggleBtn.innerHTML = "☰";
+            }
+        }
+</script>
+
     </script>
 
 </body>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup | DoctorCare24x7</title>
 
     <style>
@@ -106,8 +107,19 @@
         window.location.href = "login.html";
         return false; // stop real submit
     }
-</script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
 
+    navLinks.classList.toggle('show');
+
+    if (navLinks.classList.contains('show')) {
+        toggleBtn.innerHTML = "✖";
+    } else {
+        toggleBtn.innerHTML = "☰";
+    }
+}
+</script>
 
         <p>
             Already have an account?

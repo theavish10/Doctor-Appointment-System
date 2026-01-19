@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us | Doctor Appointment System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | DoctorCare24x7</title>
 
     <style>
         * {
@@ -16,7 +17,7 @@
             background-color: #f4f6f9;
         }
 
-        /* Navbar */
+        /* ===== NAVBAR ===== */
         nav {
             display: flex;
             justify-content: space-between;
@@ -25,32 +26,40 @@
             background-color: white;
         }
 
-        nav .logo {
+        .logo {
             color: #2563eb;
             font-size: 24px;
             font-weight: bold;
         }
 
-        nav ul {
+        .nav-links {
             list-style: none;
             display: flex;
         }
 
-        nav ul li {
+        .nav-links li {
             margin-left: 25px;
         }
 
-        nav ul li a {
+        .nav-links li a {
             color: #111827;
             text-decoration: none;
             font-size: 16px;
         }
 
-        nav ul li a:hover {
+        .nav-links li a:hover {
             text-decoration: underline;
         }
 
-        /* Contact Section */
+        /* ===== HAMBURGER ICON ===== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== CONTACT SECTION ===== */
         .contact {
             max-width: 900px;
             margin: 50px auto;
@@ -102,7 +111,58 @@
             background-color: #084c9e;
         }
 
-        /* Footer */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+.menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== MOBILE + HAMBURGER ===== */
+        @media (max-width: 768px) {
+
+        nav {
+            position: relative; /* REQUIRED */
+            flex-wrap: wrap;
+            padding: 14px 20px;
+        }
+
+        .menu-toggle {
+            display: block;
+            position: absolute;   
+            top: 16px;            
+            right: 20px;          
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: white;
+            margin-top: 50px;     /* space below navbar */
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 12px 20px;
+        }
+        .contact {
+            flex-direction: column;
+            margin: 20px 10px;
+        }
+    }
+
+        /* ===== FOOTER ===== */
         .footer-brand {
             display: flex;
             justify-content: center;
@@ -136,66 +196,77 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">DoctorCare24x7</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="doctors.html">Doctors</a></li>
-            <li><a href="appointment.html">Appointment</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-        </ul>
-    </nav>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">DoctorCare24x7</div>
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="appointment.html">Appointment</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+    </ul>
 
-        <!-- Contact Info -->
-        <div class="contact-info">
-            <h2>Contact Information</h2>
-            <p><strong>Hospital Name:</strong> DoctorCare24x7 Hospital</p>
-            <p><strong>Address:</strong> A.P. Colony, Gaya, Bihar - 823001</p>
-            <p><strong>Phone:</strong> +91 70332 59997</p>
-            <p><strong>Email:</strong> doctorcare24x4@gmail.com</p>
-            <p><strong>Working Hours:</strong> Mon – Sat (10 AM - 7 PM)</p>
-        </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
 
-        <!-- Contact Form -->
-        <div class="contact-form">
-            <h2>Send Message</h2>
-            <form action="https://formsubmit.co/doctorcare24x7@gmail.com" method="POST">
+<!-- CONTACT SECTION -->
+<section class="contact">
 
-                <input type="hidden" name="_subject" value="New Contact Message">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://theavish10.github.io/Doctor-Appointment-System/index.html">
-                <input type="text" name="Name" placeholder="Your Name" required>
-                <input type="email" name="Email" placeholder="Your Email" required>
-                <textarea name="Message" placeholder="Your Message" required></textarea>
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Hospital Name:</strong> DoctorCare24x7 Hospital</p>
+        <p><strong>Address:</strong> A.P. Colony, Gaya, Bihar - 823001</p>
+        <p><strong>Phone:</strong> +91 70332 59997</p>
+        <p><strong>Email:</strong> doctorcare24x7@gmail.com</p>
+        <p><strong>Working Hours:</strong> Mon – Sat (10 AM - 7 PM)</p>
+    </div>
 
-                <button type="submit">Send Message</button>
-            </form>
+    <div class="contact-form">
+        <h2>Send Message</h2>
 
-        </div>
+        <form action="https://formsubmit.co/doctorcare24x7@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Contact Message">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://theavish10.github.io/Doctor-Appointment-System/index.html">
 
-    </section>
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" placeholder="Your Message" required></textarea>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-brand">
-            <span class="footer-dot"></span>
-            <span class="footer-name">DoctorCare24x7</span>
-            <span class="footer-dot"></span>
-        </div>
-        © 2026 DoctorCare24x7. All rights reserved.
-    </footer>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
 
-    <!-- JavaScript -->
-    <script>
-        function sendMessage() {
-            alert("Thank you! Your message has been sent.");
-            return false;
-        }
-    </script>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <span class="footer-dot"></span>
+        <span class="footer-name">DoctorCare24x7</span>
+        <span class="footer-dot"></span>
+    </div>
+    © 2026 DoctorCare24x7. All rights reserved.
+</footer>
+
+<!-- TOGGLE SCRIPT -->
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    navLinks.classList.toggle('show');
+
+    if (navLinks.classList.contains('show')) {
+        toggleBtn.innerHTML = "✖";
+    } else {
+        toggleBtn.innerHTML = "☰";
+    }
+}
+</script>
+
 
 </body>
 </html>
+

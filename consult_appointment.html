@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consult Appointment | DoctorCare24x7</title>
 
     <style>
@@ -16,7 +17,50 @@
             background: #f4f6f9;
         }
 
-        /* Container */
+        /* ===== NAVBAR ===== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links li a {
+            color: #111827;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== HAMBURGER ===== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== APPOINTMENT BOX ===== */
         .appointment-box {
             width: 350px;
             margin: 80px auto;
@@ -56,36 +100,116 @@
         .appointment-box button:hover {
             background: #1e40af;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2563eb;
+        }
+
+        /* ===== MOBILE + HAMBURGER ===== */
+        @media (max-width: 768px) {
+
+        nav {
+            position: relative; /* REQUIRED */
+            flex-wrap: wrap;
+            padding: 14px 20px;
+        }
+
+        .menu-toggle {
+            display: block;
+            position: absolute;   
+            top: 16px;            
+            right: 20px;          
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: white;
+            margin-top: 50px;     /* space below navbar */
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 12px 20px;
+        }
+        .appointment-box {
+            width: 90%;
+            margin: 40px auto;
+        }
+    }
     </style>
 </head>
 
 <body>
 
-    <div class="appointment-box">
-        <h2>Consult Appointment</h2>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">DoctorCare24x7</div>
 
-        <form onsubmit="return submitAppointment()">
-            <input type="text" placeholder="Full Name" required>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Find Doctors</a></li>
+        <li><a href="video-consult.html">Video Consult</a></li>
+        <li><a href="lab-tests.html">Lab Tests</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-            <input type="tel" placeholder="Mobile Number" required>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
 
-            <select required>
-                <option value="">Select Time Slot</option>
-                <option>11:00 AM - 12:30 PM</option>
-                <option>01:00 PM - 02:30 PM</option>
-                <option>03:00 PM - 04:30 PM</option>
-            </select>
+<!-- CONSULT FORM -->
+<div class="appointment-box">
+    <h2>Consult Appointment</h2>
 
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+    <form onsubmit="return submitAppointment()">
+        <input type="text" placeholder="Full Name" required>
+        <input type="tel" placeholder="Mobile Number" required>
 
-    <script>
-        function submitAppointment() {
-            alert("Your consultation appointment has been booked!");
-            return false;
-        }
-    </script>
+        <select required>
+            <option value="">Select Time Slot</option>
+            <option>11:00 AM - 12:30 PM</option>
+            <option>01:00 PM - 02:30 PM</option>
+            <option>03:00 PM - 04:30 PM</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- SCRIPT -->
+<script>
+function submitAppointment() {
+    alert("Your consultation appointment has been booked!");
+    return false;
+}
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    navLinks.classList.toggle('show');
+
+    if (navLinks.classList.contains('show')) {
+        toggleBtn.innerHTML = "✖";
+    } else {
+        toggleBtn.innerHTML = "☰";
+    }
+}
+</script>
 
 </body>
 </html>
+

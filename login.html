@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | DoctorCare24x7</title>
 
     <style>
@@ -86,6 +87,7 @@
         .auth-container a:hover {
             text-decoration: underline;
         }
+
     </style>
 </head>
 
@@ -112,9 +114,22 @@
         window.location.href = "index.html";
         return false; // stop real submit
     }
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    navLinks.classList.toggle('show');
+
+    if (navLinks.classList.contains('show')) {
+        toggleBtn.innerHTML = "✖";
+    } else {
+        toggleBtn.innerHTML = "☰";
+    }
+}
+function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+    }
 </script>
-
-
         <p>
             Don’t have an account?
             <a href="signup.html">Sign up</a>

@@ -236,6 +236,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Doctors | DoctorCare24x7</title>
 
     <style>
@@ -250,41 +251,50 @@
             background-color: #f4f6f9;
         }
 
-        /* Navbar */
+        /* ===== NAVBAR ===== */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 50px;
             background-color: white;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        nav .logo {
+        .logo {
             color: #2563eb;
             font-size: 24px;
             font-weight: bold;
         }
 
-        nav ul {
+        .nav-links {
             list-style: none;
             display: flex;
         }
 
-        nav ul li {
+        .nav-links li {
             margin-left: 25px;
         }
 
-        nav ul li a {
+        .nav-links li a {
             color: #111827;
             text-decoration: none;
             font-size: 16px;
         }
 
-        nav ul li a:hover {
+        .nav-links li a:hover {
             text-decoration: underline;
         }
 
-        /* Doctors Section */
+        /* ===== HAMBURGER BUTTON ===== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #2563eb; /* 🔵 BLUE */
+        }
+
+        /* ===== DOCTORS SECTION ===== */
         .doctors {
             padding: 50px;
             text-align: center;
@@ -336,13 +346,54 @@
             font-weight: bold;
         }
 
-        .doctor-card img {
-            height: 220px;
-            object-fit: cover;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+.menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2563eb;
         }
 
+        /* ===== MOBILE + HAMBURGER ===== */
+        @media (max-width: 768px) {
 
-        /* Footer */
+        nav {
+            position: relative; /* REQUIRED */
+            flex-wrap: wrap;
+            padding: 14px 20px;
+        }
+
+        .menu-toggle {
+            display: block;
+            position: absolute;   
+            top: 16px;            
+            right: 20px;          
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: white;
+            margin-top: 50px;     /* space below navbar */
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 12px 20px;
+        }
+    }
+
+        /* ===== FOOTER ===== */
         footer {
             margin-top: 40px;
             background-color: #0a66c2;
@@ -355,19 +406,22 @@
 
 <body>
 
-<!-- Navbar -->
+<!-- ===== NAVBAR ===== -->
 <nav>
     <div class="logo">DoctorCare24x7</div>
-    <ul>
+
+    <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="video-consult.html">Video-Consult</a></li>
-        <li><a href="lab-tests.html">Lab-Tests</a></li>
+        <li><a href="video-consult.html">Video Consult</a></li>
+        <li><a href="lab-tests.html">Lab Tests</a></li>
         <li><a href="appointment.html">Appointment</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- Doctors Section -->
+<!-- ===== DOCTORS ===== -->
 <section class="doctors">
     <h1>Our Expert Doctors</h1>
 
@@ -456,10 +510,28 @@
     </div>
 </section>
 
-<!-- Footer -->
+<!-- ===== FOOTER ===== -->
 <footer>
     © 2026 DoctorCare24x7. All rights reserved.
 </footer>
 
+<!-- ===== SCRIPT ===== -->
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    navLinks.classList.toggle('show');
+
+    if (navLinks.classList.contains('show')) {
+        toggleBtn.innerHTML = "✖";
+    } else {
+        toggleBtn.innerHTML = "☰";
+    }
+}
+</script>
+
+
 </body>
 </html>
+
