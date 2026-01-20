@@ -7,23 +7,15 @@
     <style>
         :root { 
             --primary: #2563eb; 
-            --primary-dark: #1e40af;
-            --secondary: #0a66c2; 
-            --bg: #f4f6f9; 
+            --bg: #f0f7ff; /* Sky Tint */
+            --success: #10b981;
             --text: #111827; 
-            --muted: #4b5563;
             --star: #fbbf24;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
         
-        body { 
-            background: var(--bg); 
-            color: var(--text); 
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
         /* ===== NAVBAR ===== */
         nav { 
@@ -32,78 +24,81 @@
             align-items: center; 
             padding: 15px 50px; 
             background: white; 
-            border-bottom: 1px solid #e5e7eb; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            height: 70px; /* Standardized Height */
         }
-
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
         .nav-links { list-style: none; display: flex; align-items: center; }
         .nav-links li { margin-left: 25px; }
         .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: var(--primary); }
 
-        /* ===== HEADER & STATS ===== */
-        .reviews-header { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .reviews-header h1 { font-size: 2.5rem; color: var(--text); margin-bottom: 10px; }
-        
-        .rating-summary {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .big-rating { font-size: 3rem; font-weight: 800; color: var(--primary); }
-        .stars { color: var(--star); font-size: 1.5rem; }
+        /* ===== HEADER ===== */
+        .reviews-header { text-align: center; padding: 80px 20px; background: white; }
+        .big-rating { font-size: 4rem; font-weight: 800; color: var(--primary); letter-spacing: -2px; }
+        .stars { color: var(--star); font-size: 1.5rem; margin-top: 10px; }
 
         /* ===== REVIEWS GRID ===== */
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; flex-grow: 1; }
-
-        .reviews-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-        }
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; flex-grow: 1; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
         .review-card { 
             background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border: 1px solid #f0f0f0;
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); 
             transition: 0.3s;
         }
 
-        .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .review-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
 
-        .patient-info { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .patient-img { width: 50px; height: 50px; border-radius: 50%; background: #eef2ff; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); }
+        .patient-info { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .patient-img { width: 50px; height: 50px; border-radius: 50%; background: #eef2ff; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--primary); }
         
-        .review-card h4 { font-size: 1.1rem; color: var(--text); }
-        .review-date { font-size: 0.85rem; color: var(--muted); }
-        .review-text { font-style: italic; color: var(--muted); line-height: 1.6; margin-top: 15px; }
-        .verified-badge { color: #10b981; font-size: 0.8rem; font-weight: bold; }
+        .verified-badge { 
+            background: #f0fdf4; 
+            color: var(--success); 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            padding: 2px 10px; 
+            border-radius: 12px;
+            display: inline-block;
+        }
 
-        /* ===== FOOTER ===== */
-        footer { background: #111827; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        .review-text { font-style: italic; color: #4b5563; line-height: 1.8; margin: 20px 0; font-size: 1.05rem; }
 
+        footer { background: #0a66c2; color: white; text-align: center; padding: 30px; margin-top: 60px; }
+
+        /* ===== MOBILE RESPONSIVE FIX ===== */
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
+            nav { padding: 15px 20px; height: auto; }
             .menu-toggle { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 20px 0; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background: white; 
+                padding: 10px 0; 
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
             .nav-links.show { display: flex; }
-            .nav-links li { margin: 10px 0; }
+            
+            /* The fix for the menu gaps */
+            .nav-links li { 
+                margin: 0; 
+                width: 100%; 
+                padding: 15px 0; 
+                text-align: center;
+                border-bottom: 1px solid #f3f4f6; 
+            }
+            .nav-links li:last-child { border-bottom: none; }
         }
     </style>
 </head>
@@ -122,16 +117,10 @@
     </nav>
 
     <header class="reviews-header">
-        <h1>Patient Testimonials</h1>
-        <p>See what our patients have to say about their experience with DoctorCare24x7.</p>
-        
-        <div class="rating-summary">
-            <div class="big-rating">4.9</div>
-            <div>
-                <div class="stars">★★★★★</div>
-                <p>Based on 2,500+ Reviews</p>
-            </div>
-        </div>
+        <h1>Patient Stories</h1>
+        <div class="big-rating">4.9</div>
+        <div class="stars">★★★★★</div>
+        <p style="margin-top: 10px; color: #6b7280;">Trust built over 2,500+ successful appointments</p>
     </header>
 
     <div class="container">
@@ -146,8 +135,8 @@
                     </div>
                 </div>
                 <div class="stars" style="font-size: 1rem;">★★★★★</div>
-                <p class="review-text">"The video consultation with Dr. Amit was seamless. I saved so much time not having to travel to the clinic. Highly recommended!"</p>
-                <p class="review-date">January 15, 2026</p>
+                <p class="review-text">"The video interface was crystal clear and the doctor provided a very detailed treatment plan. I saved hours on commuting!"</p>
+                <p style="font-size: 0.85rem; color: #9ca3af;">January 20, 2026</p>
             </div>
 
             <div class="review-card">
@@ -159,34 +148,8 @@
                     </div>
                 </div>
                 <div class="stars" style="font-size: 1rem;">★★★★★</div>
-                <p class="review-text">"Booking a lab test was so easy. The technician came on time for sample collection and I got my reports on email the same day."</p>
-                <p class="review-date">January 10, 2026</p>
-            </div>
-
-            <div class="review-card">
-                <div class="patient-info">
-                    <div class="patient-img">VM</div>
-                    <div>
-                        <h4>Vikram Mehra</h4>
-                        <span class="verified-badge">✓ Verified Patient</span>
-                    </div>
-                </div>
-                <div class="stars" style="font-size: 1rem;">★★★★☆</div>
-                <p class="review-text">"Great platform for quick medical advice. The doctors are very professional and patient in listening to concerns."</p>
-                <p class="review-date">December 28, 2025</p>
-            </div>
-
-            <div class="review-card">
-                <div class="patient-info">
-                    <div class="patient-img">RV</div>
-                    <div>
-                        <h4>Ronit Verma</h4>
-                        <span class="verified-badge">✓ Verified Patient</span>
-                    </div>
-                </div>
-                <div class="stars" style="font-size: 1rem;">★★★★☆</div>
-                <p class="review-text">"Finding a specialist in my area used to take days, but with this platform, I booked a top-rated cardiologist and confirmed my slot in minutes."</p>
-                <p class="review-date">December 20, 2025</p>
+                <p class="review-text">"The convenience of having my blood samples collected at home was a game-changer; I received my digital reports in less than 24 hours!"</p>
+                <p style="font-size: 0.85rem; color: #9ca3af;">January 15, 2026</p>
             </div>
 
         </div>
@@ -197,8 +160,9 @@
     <script>
         function toggleMenu() {
             const nav = document.querySelector('.nav-links');
+            const btn = document.querySelector('.menu-toggle');
             nav.classList.toggle('show');
-            document.querySelector('.menu-toggle').innerHTML = nav.classList.contains('show') ? "✖" : "☰";
+            btn.innerHTML = nav.classList.contains('show') ? "✖" : "☰";
         }
     </script>
 </body>

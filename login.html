@@ -5,21 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | DoctorCare24x7</title>
     <style>
-        :root { --primary: #2563eb; --bg: #f4f6f9; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: var(--bg); display: flex; flex-direction: column; min-height: 100vh; }
-        
-        nav { padding: 15px 50px; background: white; border-bottom: 1px solid #eee; }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --bg: #f0f7ff; /* Sky Tint Refinement */
+            --text: #111827;
+        }
 
-        .auth-container { width: 380px; margin: 80px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
-        .auth-container h2 { margin-bottom: 25px; color: #111827; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
         
-        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
-        button { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* ===== NAVBAR ===== */
+        nav { 
+            display: flex; 
+            justify-content: center; 
+            padding: 20px; 
+            background-color: white; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+        }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+
+        /* ===== AUTH CONTAINER ===== */
+        .auth-container { 
+            width: 100%;
+            max-width: 400px; 
+            margin: auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
+            text-align: center; 
+        }
+
+        .auth-container h2 {
+            margin-bottom: 25px;
+            color: #111827; /* Darker blue/black for premium look */
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+        
+        input { 
+            width: 100%; 
+            padding: 12px 15px; 
+            margin-bottom: 20px; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 10px; 
+            background-color: #f9fafb;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input:focus { outline: none; border-color: var(--primary); background-color: white; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+        
+        /* Interactive Button Effect */
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background-color: white; 
+            color: var(--primary); 
+            border: 2px solid var(--primary); 
+            border-radius: 12px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover { background-color: var(--primary); color: white; }
         
         .auth-container p { margin-top: 20px; font-size: 14px; color: #666; }
         .auth-container a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        .auth-container a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>

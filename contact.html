@@ -4,93 +4,318 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | DoctorCare24x7</title>
+
     <style>
-        :root { --primary: #2563eb; --secondary: #0a66c2; --bg: #f4f6f9; --text: #111827; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0a66c2;
+            --bg: #f0f7ff; /* Sky Tint Refinement */
+            --text: #111827;
+            --muted: #4b5563;
+        }
 
-        /* FIXED NAVBAR */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: white; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
-        .nav-links { list-style: none; display: flex; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
-        
-        /* THE FIX: Added hover state */
-        .nav-links a:hover { color: var(--primary); } 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
 
-        .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: var(--primary); }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-        /* CONTACT LAYOUT */
-        .contact-section { max-width: 1000px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
-        .info-panel { background: var(--secondary); color: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .info-panel h2 { margin-bottom: 25px; }
-        .info-panel p { margin-bottom: 20px; opacity: 0.9; }
+        /* ===== NAVBAR ===== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            height: 70px;
+        }
 
-        .form-panel { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .form-panel h2 { margin-bottom: 25px; color: var(--primary); }
-        
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; background: #f9fafb; font-size: 15px; }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-        
-        button { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #1e40af; }
+        .logo {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+        }
 
-        footer { background: #111827; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
-        @media (max-width: 850px) {
-            .contact-section { grid-template-columns: 1fr; }
-            nav { padding: 15px 20px; }
-            .menu-toggle { display: block; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-            .nav-links.show { display: flex; }
-            .nav-links li { margin: 10px 0; padding: 0 20px; }
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            max-width: 1000px;
+            margin: 60px auto;
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+
+        .contact-info,
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info:hover,
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.08);
+        }
+
+        .contact-info h2,
+        .contact-form h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .contact-info strong {
+            color: var(--text);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background-color: #f9fafb;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Interactive Button Effect */
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: auto;
+        }
+
+        .footer-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .footer-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22d3ee;
+            border-radius: 50%;
+            margin: 0 6px;
+        }
+
+        .footer-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                height: auto;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                margin-top: 50px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 20px;
+                margin: 0;
+                border-bottom: 1px solid #f3f4f6;
+            }
+
+            .contact {
+                flex-direction: column;
+                margin: 40px auto;
+            }
         }
     </style>
 </head>
+
 <body>
-    <nav>
-        <a href="index.html" class="logo">DoctorCare24x7</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="doctors.html">Doctors</a></li>
-            <li><a href="video-consult.html">Video Consult</a></li>
-            <li><a href="appointment.html">Appointment</a></li>
-            <li><a href="review.html">Review</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-        </ul>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    </nav>
 
-    <div class="contact-section">
-        <div class="info-panel">
-            <h2>Contact Details</h2>
-            <p><strong>📍 Address:</strong> A.P. Colony, Gaya, Bihar - 823001</p>
-            <p><strong>📞 Phone:</strong> +91 70332 59997</p>
-            <p><strong>📧 Email:</strong> doctorcare24x7@gmail.com</p>
-            <p><strong>🕒 Hours:</strong> Mon – Sat (10 AM - 7 PM)</p>
-        </div>
+<nav>
+    <a href="index.html" class="logo">DoctorCare24x7</a>
 
-        <div class="form-panel">
-            <h2>Send Message</h2>
-            <form action="https://formsubmit.co/doctorcare24x7@gmail.com" method="POST">
-                <input type="text" name="Name" placeholder="Your Full Name" required>
-                <input type="email" name="Email" placeholder="Your Email Address" required>
-                <textarea name="Message" rows="5" placeholder="How can we help you?" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Find Doctors</a></li>
+        <li><a href="video-consult.html">Video Consult</a></li>
+        <li><a href="lab-tests.html">Lab Tests</a></li>
+        <li><a href="appointment.html">Appointment</a></li>        
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="review.html">Review</a></li>
+    </ul>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
+
+<section class="contact">
+
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Hospital Name:</strong> DoctorCare24x7 Hospital</p>
+        <p><strong>Address:</strong> A.P. Colony, Gaya, Bihar - 823001</p>
+        <p><strong>Phone:</strong> +91 70332 59997</p>
+        <p><strong>Email:</strong> doctorcare24x7@gmail.com</p>
+        <p><strong>Working Hours:</strong> Mon – Sat (10 AM - 7 PM)</p>
     </div>
 
-    <footer>© 2026 DoctorCare24x7. All rights reserved.</footer>
+    <div style="margin-top: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14451.688126781747!2d84.99187383955077!3d24.791258800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f329977f8976b3%3A0xc070054817765954!2sA%20P%20Colony%2C%20Gaya%2C%20Bihar%20823001!5e0!3m2!1sen!2sin!4v1705741000000!5m2!1sen!2sin" 
+           width="100%" 
+           height="200" 
+           style="border:0;" 
+           allowfullscreen="" 
+           loading="lazy">
+        </iframe>
+    </div>
 
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('.nav-links');
-            nav.classList.toggle('show');
-            document.querySelector('.menu-toggle').innerHTML = nav.classList.contains('show') ? "✖" : "☰";
-        }
-    </script>
+    <div class="contact-form">
+        <h2>Send Message</h2>
+
+        <form action="https://formsubmit.co/doctorcare24x7@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Contact Message">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://theavish10.github.io/Doctor-Appointment-System/index.html">
+
+            <input type="text" name="Name" placeholder="Your Full Name" required>
+            <input type="email" name="Email" placeholder="Email Address" required>
+            <textarea name="Message" placeholder="How can we help you?" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</section>
+
+<footer>
+    <div class="footer-brand">
+        <span class="footer-dot"></span>
+        <span class="footer-name">DoctorCare24x7</span>
+        <span class="footer-dot"></span>
+    </div>
+    © 2026 DoctorCare24x7. All rights reserved.
+</footer>
+
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+    navLinks.classList.toggle('show');
+    toggleBtn.innerHTML = navLinks.classList.contains('show') ? "✖" : "☰";
+}
+</script>
+
 </body>
 </html>
-
