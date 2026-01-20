@@ -28,8 +28,33 @@
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: var(--primary); }
 
-        .header { text-align: center; padding: 60px 20px 40px; background: white; border-bottom: 1px solid #e5e7eb; }
-        .header h1 { font-size: 2.8rem; margin-bottom: 10px; letter-spacing: -1px; }
+        /* ===== VIDEO CONSULT HEADER WITH BACKGROUND ===== */
+        .header {
+            text-align: center;
+            padding: 100px 20px; /* Padding badhaya gaya hai takki banner bada dikhe */
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+                        url('images/video-consult.jpg'); /* Background image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .header p {
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
 
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; flex-grow: 1; }
         .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
