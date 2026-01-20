@@ -7,7 +7,7 @@
     <style>
         :root { 
             --primary: #2563eb; 
-            --bg: #f0f7ff; /* Sky Tint */
+            --bg: #f0f7ff; 
             --success: #10b981;
             --text: #111827; 
             --star: #fbbf24;
@@ -17,101 +17,61 @@
         
         body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-        /* ===== NAVBAR ===== */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 15px 50px; 
-            background: white; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            height: 70px; /* Standardized Height */
-        }
-        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .nav-links { list-style: none; display: flex; align-items: center; }
+        /* Navbar */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 50px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; height: 80px; }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 150px; width: auto; object-fit: contain; }
+
+        .nav-links { list-style: none; display: flex; align-items: left; }
         .nav-links li { margin-left: 25px; }
         .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: var(--primary); }
 
-        /* ===== HEADER ===== */
+        /* Header */
         .reviews-header { text-align: center; padding: 80px 20px; background: white; }
         .big-rating { font-size: 4rem; font-weight: 800; color: var(--primary); letter-spacing: -2px; }
         .stars { color: var(--star); font-size: 1.5rem; margin-top: 10px; }
 
-        /* ===== REVIEWS GRID ===== */
+        /* Reviews Grid */
         .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; flex-grow: 1; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
-        .review-card { 
-            background: white; 
-            padding: 35px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); 
-            transition: 0.3s;
-        }
-
+        .review-card { background: white; padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); transition: 0.3s; }
         .review-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
 
         .patient-info { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
         .patient-img { width: 50px; height: 50px; border-radius: 50%; background: #eef2ff; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--primary); }
         
-        .verified-badge { 
-            background: #f0fdf4; 
-            color: var(--success); 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            padding: 2px 10px; 
-            border-radius: 12px;
-            display: inline-block;
-        }
-
+        .verified-badge { background: #f0fdf4; color: var(--success); font-size: 0.75rem; font-weight: 700; padding: 2px 10px; border-radius: 12px; display: inline-block; }
         .review-text { font-style: italic; color: #4b5563; line-height: 1.8; margin: 20px 0; font-size: 1.05rem; }
 
         footer { background: #0a66c2; color: white; text-align: center; padding: 30px; margin-top: 60px; }
 
-        /* ===== MOBILE RESPONSIVE FIX ===== */
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; height: auto; }
+            nav { padding: 10px 20px; }
+            .nav-logo-img { height: 50px; }
             .menu-toggle { display: block; }
-            .nav-links { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                width: 100%; 
-                background: white; 
-                padding: 10px 0; 
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
             .nav-links.show { display: flex; }
-            
-            /* The fix for the menu gaps */
-            .nav-links li { 
-                margin: 0; 
-                width: 100%; 
-                padding: 15px 0; 
-                text-align: center;
-                border-bottom: 1px solid #f3f4f6; 
-            }
-            .nav-links li:last-child { border-bottom: none; }
+            .nav-links li { margin: 10px 0; padding: 0 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">DoctorCare24x7</a>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="DoctorCare24x7 Logo" class="logo-img">
+        </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="doctors.html">Doctors</a></li>
             <li><a href="video-consult.html">Video Consult</a></li>
             <li><a href="lab-tests.html">Lab Tests</a></li>
             <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </nav>
@@ -125,14 +85,10 @@
 
     <div class="container">
         <div class="reviews-grid">
-            
             <div class="review-card">
                 <div class="patient-info">
                     <div class="patient-img">RK</div>
-                    <div>
-                        <h4>Rahul Kumar</h4>
-                        <span class="verified-badge">✓ Verified Patient</span>
-                    </div>
+                    <div><h4>Rahul Kumar</h4><span class="verified-badge">✓ Verified Patient</span></div>
                 </div>
                 <div class="stars" style="font-size: 1rem;">★★★★★</div>
                 <p class="review-text">"The video interface was crystal clear and the doctor provided a very detailed treatment plan. I saved hours on commuting!"</p>
@@ -142,16 +98,12 @@
             <div class="review-card">
                 <div class="patient-info">
                     <div class="patient-img">SA</div>
-                    <div>
-                        <h4>Sneha Agarwal</h4>
-                        <span class="verified-badge">✓ Verified Patient</span>
-                    </div>
+                    <div><h4>Sneha Agarwal</h4><span class="verified-badge">✓ Verified Patient</span></div>
                 </div>
                 <div class="stars" style="font-size: 1rem;">★★★★★</div>
                 <p class="review-text">"The convenience of having my blood samples collected at home was a game-changer; I received my digital reports in less than 24 hours!"</p>
                 <p style="font-size: 0.85rem; color: #9ca3af;">January 15, 2026</p>
             </div>
-
         </div>
     </div>
 
@@ -160,9 +112,8 @@
     <script>
         function toggleMenu() {
             const nav = document.querySelector('.nav-links');
-            const btn = document.querySelector('.menu-toggle');
             nav.classList.toggle('show');
-            btn.innerHTML = nav.classList.contains('show') ? "✖" : "☰";
+            document.querySelector('.menu-toggle').innerHTML = nav.classList.contains('show') ? "✖" : "☰";
         }
     </script>
 </body>
