@@ -3,213 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consult Appointment | DoctorCare24x7</title>
-
+    <title>Video Consultation | DoctorCare24x7</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+        :root { --primary: #2563eb; --primary-dark: #1e40af; --bg: #f4f6f9; --text: #111827; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; }
 
-        body {
-            background: #f4f6f9;
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; }
+        .menu-toggle { display: none; font-size: 28px; cursor: pointer; color: var(--primary); }
 
-        /* ===== NAVBAR ===== */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 40px;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-        }
+        .appointment-box { max-width: 450px; margin: 60px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
+        .appointment-box h2 { color: var(--primary); margin-bottom: 25px; font-size: 1.8rem; }
+        
+        input, select { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #e5e7eb; border-radius: 8px; background: #f9fafb; font-size: 15px; }
+        input:focus, select:focus { border-color: var(--primary); outline: none; background: white; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        
+        button { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        button:hover { background: var(--primary-dark); }
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2563eb;
-        }
+        footer { background: #111827; color: white; text-align: center; padding: 30px; margin-top: 50px; }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
-        .nav-links li a {
-            color: #111827;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .nav-links li a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== HAMBURGER ===== */
-        .menu-toggle {
-            display: none;
-            font-size: 26px;
-            cursor: pointer;
-            color: #2563eb;
-        }
-
-        /* ===== APPOINTMENT BOX ===== */
-        .appointment-box {
-            width: 350px;
-            margin: 80px auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .appointment-box h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2563eb;
-        }
-
-        .appointment-box input,
-        .appointment-box select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
-
-        .appointment-box button {
-            width: 100%;
-            padding: 12px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        .appointment-box button:hover {
-            background: #1e40af;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        .menu-toggle {
-            display: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #2563eb;
-        }
-
-        /* ===== MOBILE + HAMBURGER ===== */
         @media (max-width: 768px) {
-
-        nav {
-            position: relative; /* REQUIRED */
-            flex-wrap: wrap;
-            padding: 14px 20px;
+            nav { padding: 15px 20px; }
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+            .nav-links.show { display: flex; }
+            .nav-links li { margin: 10px 0; padding: 0 20px; }
+            .appointment-box { width: 90%; padding: 25px; }
         }
-
-        .menu-toggle {
-            display: block;
-            position: absolute;   
-            top: 16px;            
-            right: 20px;          
-            z-index: 1000;
-        }
-
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            background: white;
-            margin-top: 50px;     /* space below navbar */
-            padding: 10px 0;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .nav-links.show {
-            display: flex;
-        }
-
-        .nav-links li {
-            padding: 12px 20px;
-        }
-        .appointment-box {
-            width: 90%;
-            margin: 40px auto;
-        }
-    }
     </style>
 </head>
-
 <body>
+    <nav>
+        <a href="index.html" class="logo">DoctorCare24x7</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="video-consult.html">Video Consult</a></li>
+            <li><a href="lab-tests.html">Lab Tests</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
 
-<!-- NAVBAR -->
-<nav>
-    <div class="logo">DoctorCare24x7</div>
+    <div class="appointment-box">
+        <h2>Schedule Video Consult</h2>
+        <form onsubmit="return submitAppointment()">
+            <input type="text" placeholder="Patient Full Name" required>
+            <input type="tel" placeholder="Mobile Number" required>
+            <select required>
+                <option value="">Choose Time Slot</option>
+                <option>11:00 AM - 12:30 PM</option>
+                <option>01:00 PM - 02:30 PM</option>
+                <option>03:00 PM - 04:30 PM</option>
+            </select>
+            <button type="submit">Confirm Consultation</button>
+        </form>
+    </div>
 
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="doctors.html">Find Doctors</a></li>
-        <li><a href="video-consult.html">Video Consult</a></li>
-        <li><a href="lab-tests.html">Lab Tests</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <footer>© 2026 DoctorCare24x7. All rights reserved.</footer>
 
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</nav>
-
-<!-- CONSULT FORM -->
-<div class="appointment-box">
-    <h2>Consult Appointment</h2>
-
-    <form onsubmit="return submitAppointment()">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Mobile Number" required>
-
-        <select required>
-            <option value="">Select Time Slot</option>
-            <option>11:00 AM - 12:30 PM</option>
-            <option>01:00 PM - 02:30 PM</option>
-            <option>03:00 PM - 04:30 PM</option>
-        </select>
-
-        <button type="submit">Submit</button>
-    </form>
-</div>
-
-<!-- SCRIPT -->
-<script>
-function submitAppointment() {
-    alert("Your consultation appointment has been booked!");
-    return false;
-}
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    const toggleBtn = document.querySelector('.menu-toggle');
-
-    navLinks.classList.toggle('show');
-
-    if (navLinks.classList.contains('show')) {
-        toggleBtn.innerHTML = "✖";
-    } else {
-        toggleBtn.innerHTML = "☰";
-    }
-}
-</script>
-
+    <script>
+        function submitAppointment() { alert("Consultation Booked! Our team will contact you shortly."); return false; }
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('show');
+            document.querySelector('.menu-toggle').innerHTML = nav.classList.contains('show') ? "✖" : "☰";
+        }
+    </script>
 </body>
 </html>
-

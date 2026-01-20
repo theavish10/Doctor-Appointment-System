@@ -3,129 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup | DoctorCare24x7</title>
-
+    <title>Create Account | DoctorCare24x7</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+        :root { --primary: #2563eb; --bg: #f4f6f9; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background: var(--bg); display: flex; flex-direction: column; min-height: 100vh; }
+        
+        nav { padding: 15px 50px; background: white; border-bottom: 1px solid #eee; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
 
-        body {
-            background: #f4f6f9;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 40px;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #2563eb;
-        }
-
-        .auth-container {
-            width: 360px;
-            margin: 80px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .auth-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .auth-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .auth-container button {
-            width: 100%;
-            padding: 12px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        .auth-container button:hover {
-            background: #1e40af;
-        }
-
-        .auth-container p {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
-        .auth-container a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        .auth-container { width: 400px; margin: 60px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
+        .auth-container h2 { margin-bottom: 25px; color: #111827; }
+        
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; }
+        button { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        
+        .auth-container p { margin-top: 20px; font-size: 14px; color: #666; }
+        .auth-container a { color: var(--primary); text-decoration: none; font-weight: bold; }
     </style>
 </head>
-
 <body>
-
-    <nav>
-        <div class="logo">DoctorCare24x7</div>
-    </nav>
+    <nav><a href="index.html" class="logo">DoctorCare24x7</a></nav>
 
     <div class="auth-container">
         <h2>Sign Up</h2>
-
         <form onsubmit="return signupUser()">
            <input type="text" placeholder="Full Name" required>
            <input type="email" placeholder="Email Address" required>
            <input type="password" placeholder="Password" required>
            <input type="password" placeholder="Confirm Password" required>
-
            <button type="submit">Create Account</button>
         </form>
-
-<script>
-    function signupUser() {
-        alert("Signup successful! Please login.");
-        window.location.href = "login.html";
-        return false; // stop real submit
-    }
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    const toggleBtn = document.querySelector('.menu-toggle');
-
-    navLinks.classList.toggle('show');
-
-    if (navLinks.classList.contains('show')) {
-        toggleBtn.innerHTML = "✖";
-    } else {
-        toggleBtn.innerHTML = "☰";
-    }
-}
-</script>
-
-        <p>
-            Already have an account?
-            <a href="login.html">Login</a>
-        </p>
+        <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
 
+    <script>
+        function signupUser() { alert("Account created! Please login."); window.location.href = "login.html"; return false; }
+    </script>
 </body>
 </html>

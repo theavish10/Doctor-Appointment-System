@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -172,7 +172,7 @@
 
 <body>
 
-<!-- ===== NAVBAR ===== -->
+===== NAVBAR =====
 <nav>
     <div class="logo">DoctorCare24x7</div>
 
@@ -187,7 +187,7 @@
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- ===== DOCTORS ===== -->
+===== DOCTORS =====
 <section class="doctors">
     <h1>Our Expert Doctors</h1>
 
@@ -276,12 +276,12 @@
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+===== FOOTER =====
 <footer>
     © 2026 DoctorCare24x7. All rights reserved.
 </footer>
 
-<!-- ===== SCRIPT ===== -->
+===== SCRIPT =====
 <script>
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
@@ -299,5 +299,352 @@ function toggleMenu() {
 
 
 </body>
-</html>
+</html> -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors | DoctorCare24x7</title>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0a66c2;
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --bg-body: #f4f6f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== MOBILE TOGGLE ===== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* ===== DOCTORS SECTION ===== */
+        .doctors-header {
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .doctors-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .doctors-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .doctor-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 50px 80px;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .doctor-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .doctor-card h3 {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .specialist-tag {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .doctor-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .book-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* ===== FOOTER ===== */
+        footer { background: #111827; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                border-top: 1px solid #eee;
+                padding: 20px 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                padding: 0 20px;
+            }
+
+            .doctor-list {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">DoctorCare24x7</a>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="video-consult.html">Video Consult</a></li>
+        <li><a href="lab-tests.html">Lab Tests</a></li>
+        <li><a href="appointment.html">Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
+
+<section class="doctors-header">
+    <h1>Our Expert Doctors</h1>
+    <p>Consult with top-rated specialists across various departments to receive world-class healthcare from the comfort of your home.</p>
+</section>
+
+<main class="doctor-list">
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-amit.jpg" alt="Dr. Amit Kumar">
+        <div class="doctor-info">
+            <h3>Dr. Amit Kumar</h3>
+            <span class="specialist-tag">Cardiologist</span>
+            <p>📍 Gaya, Bihar</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-neha.jpg" alt="Dr. Neha Singh">
+        <div class="doctor-info">
+            <h3>Dr. Neha Singh</h3>
+            <span class="specialist-tag">Gynecologist</span>
+            <p>📍 Patna, Bihar</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-rohit.jpg" alt="Dr. Rohit Verma">
+        <div class="doctor-info">
+            <h3>Dr. Rohit Verma</h3>
+            <span class="specialist-tag">Orthopedic</span>
+            <p>📍 Ranchi, Jharkhand</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-pooja.jpg" alt="Dr. Pooja Sharma">
+        <div class="doctor-info">
+            <h3>Dr. Pooja Sharma</h3>
+            <span class="specialist-tag">Dermatologist</span>
+            <p>📍 Delhi</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-suresh.jpg" alt="Dr. Suresh Mehta">
+        <div class="doctor-info">
+            <h3>Dr. Suresh Mehta</h3>
+            <span class="specialist-tag">Neurologist</span>
+            <p>📍 Jaipur, Rajasthan</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-anjali.jpg" alt="Dr. Anjali Gupta">
+        <div class="doctor-info">
+            <h3>Dr. Anjali Gupta</h3>
+            <span class="specialist-tag">Pediatrician</span>
+            <p>📍 Lucknow, Uttar Pradesh</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-rahul.jpg" alt="Dr. Rahul Jain">
+        <div class="doctor-info">
+            <h3>Dr. Rahul Jain</h3>
+            <span class="specialist-tag">Dentist</span>
+            <p>📍 Bhopal, Madhya Pradesh</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-kavita.jpg" alt="Dr. Kavita Rao">
+        <div class="doctor-info">
+            <h3>Dr. Kavita Rao</h3>
+            <span class="specialist-tag">ENT</span>
+            <p>📍 Indore</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-manoj.jpg" alt="Dr. Manoj Yadav">
+        <div class="doctor-info">
+            <h3>Dr. Manoj Yadav</h3>
+            <span class="specialist-tag">General Physician</span>
+            <p>📍 Varanasi</p>
+        </div>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+    <div class="doctor-card">
+        <img src="images/doctors/doctor-sneha.jpg" alt="Dr. Sneha Patel">
+        <div class="doctor-info">
+            <h3>Dr. Sneha Patel</h3>
+            <span class="specialist-tag">Ophthalmologist</span>
+            <p>📍 Ahmedabad</p>
+        <a href="appointment.html" class="book-btn">Book Appointment</a>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 DoctorCare24x7. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    navLinks.classList.toggle('show');
+    toggleBtn.innerHTML = navLinks.classList.contains('show') ? "✖" : "☰";
+}
+</script>
+
+</body>
+</html>
