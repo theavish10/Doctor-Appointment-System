@@ -57,10 +57,12 @@
         .feature-icon { background: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; }
 
         /* App Banner */
-        .app-banner { background: #1e293b; color: white; padding: 60px 20px; text-align: center; }
-        .app-content h2 { margin-bottom: 15px; }
-        .app-buttons { margin-top: 25px; display: flex; justify-content: center; gap: 15px; }
-        .app-btn { background: #000; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; border: 1px solid #444; }
+        .app-banner { background-color: #121d2f; /* Matching your dark theme */ padding: 60px 20px; text-align: center; color: white; }
+        .app-content h2 { font-size: 2rem; margin-bottom: 10px; }
+        .app-content p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+        .app-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; /* Ensures buttons stack on small screens */ align-items: center; }
+        .app-btn img { height: 60px; /* Adjust this to change the size of both buttons */ transition: transform 0.3s ease; }
+        .app-btn img:hover { transform: scale(1.05); /* Subtle zoom effect on hover */ }
 
         footer { background: #0a66c2; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
 
@@ -179,20 +181,24 @@
         </div>
     </section>
 
-    <section class="app-banner">
+   <section class="app-banner">
         <div class="app-content">
             <h2>Download the DoctorCare24x7 App</h2>
             <p>Get your first consultation FREE on our mobile app.</p>
             <div class="app-buttons">
-                <a href="https://play.google.com/store" class="app-btn">Get it on Google Play</a>
-                <a href="https://www.apple.com/in/app-store/" class="app-btn">Download on App Store</a>
+                <a href="https://play.google.com/store" class="app-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                </a>
+                <a href="https://www.apple.com/app-store/" class="app-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store">
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 DoctorCare24x7. All rights reserved.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Quality Care, At Your Fingertips.</p>
+        <p style="font-weight: bold; font-size: 1.5rem; margin-top: 10px; opacity: 0.7;">© 2026 DoctorCare24x7. All rights reserved.</p>
+        <p style="font-weight: bold; font-size: 1rem; margin-top: 10px; opacity: 0.7;">Quality Care, At Your Fingertips.</p>
     </footer>
 
     <script>
